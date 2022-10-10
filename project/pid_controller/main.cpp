@@ -219,7 +219,6 @@ int main ()
   * TODO (Step 1): create pid (pid_steer) for steer command and initialize values
   **/
   PID pid_steer = PID();
-  pid_steer.Init(0.5, 0.04, 0.4, 1.2, -1.2);
 
   // initialize pid throttle
   /**
@@ -227,7 +226,26 @@ int main ()
   **/
 
   PID pid_throttle = PID();
-  pid_throttle.Init(0.15, 0.03, 0.12, 1.0, -1.0);
+  
+  
+//   pid_steer.Init(0.05, 0.001, 2.1,1.2,-1.2);
+//   pid_throttle.Init(0.5, 0.0002, 0.5,1,-1);
+
+  
+//   pid_steer.Init(0.3, 0.00001, 0.3, 1.2, -1.2);
+//   pid_throttle.Init(0.2, 0.0015, 0.07, 1, -1);  pid_steer.Init(0.3, 0.00001, 0.3, 1.2, -1.2);
+  
+//   pid_steer.Init(0.3, 0.0001, 0.3, 1.2, -1.2);
+//   pid_throttle.Init(0.2, 0.005, 0.07, 1, -1);
+  
+//     pid_steer.Init(0.4, 0.00001, 0.3, 1.2, -1.2);
+//   pid_throttle.Init(0.25, 0.0015, 0.07, 1, -1);
+  
+//       pid_steer.Init(0.4, 0.00001, 0.3, 1.2, -1.2);
+//   pid_throttle.Init(0.5, 0.0015, 0.07, 1, -1);
+  
+   pid_steer.Init(0.2, 0.00001, 0.3, 1.2, -1.2);
+   pid_throttle.Init(0.5, 0.0015, 0.07, 1, -1);
 
   
   h.onMessage([&pid_steer, &pid_throttle, &new_delta_time, &timer, &prev_timer, &i, &prev_timer](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode)
